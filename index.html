@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <title>韓國旅遊行程</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+   <h1>韓國 5 日遊行程</h1>
+   <div class="top">
+    <div class="buttonArea">
+        <div class="A">地圖區</div>
+        <div class="B">翻譯區</div>
+        <div class="C">行程細節</div>
+        <div class="D">注意事項</div>
+    </div>
+   </div>
+  <div class="container">
+    <div class="mapArea">
+        <!-- 左側行程列表 -->
+        <div id="itinerary"></div>
+        <!-- 右側地圖 -->
+        <div id="map"></div>
+    </div>
+  </div>
+  <div class="accordion">
+  <div class="card">
+    <div class="card-header">飲食</div>
+    <div class="card-body">
+        <div class="content">
+            <button class="tts-btn" data-text="不要辣，謝謝">不要辣，謝謝♫</button>
+            <button class="tts-btn" data-text="雪濃湯">雪濃湯♫</button>
+        </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header">住宿</div>
+    <div class="card-body">
+        <div class="content">
+            <button class="tts-btn" data-text="請問櫃台在哪裡">請問櫃台在哪裡♫</button>
+        </div>
+    </div>
+  </div>
+</div>
+
+</body>
+<script async
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDSx_v5af2I_1daSe2YygbREwP_-9APb3M&callback=initMap">
+  </script>
+<script  src="all.js"></script>
+</html>
