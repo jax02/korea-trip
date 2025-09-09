@@ -37,7 +37,7 @@ a{
   margin-top: 20px;
 }
 .mapArea{
-    height: 100vh;
+    max-height: 80vh;
 }
 .day {
   background: white;
@@ -79,7 +79,7 @@ a{
 /*翻譯區*/
 .accordion {
   display: grid;
-  grid-template-columns: repeat(5, 1fr); /* 三欄 */
+  grid-template-columns: repeat(2, 1fr); /* 三欄 */
   gap: 10px; /* 卡片間距 */
 }
 .accordion .card {
