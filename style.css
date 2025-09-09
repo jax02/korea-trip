@@ -1,14 +1,35 @@
+html {
+  scroll-behavior: smooth;
+}
 body {
   font-family: sans-serif;
   background: #f5f7fa;
   margin: 20px;
 }
-
+.space{
+  margin-top: 100px;
+}
 h1 {
   text-align: center;
   color: #2a5d84;
 }
-
+.title {
+  font-size: 1.5rem;       /* 字體大小 */
+  font-weight: bold;       /* 粗體 */
+  color: #2a5d84;          /* 主題顏色 */
+  margin: 15px 0;          /* 上下間距 */
+  padding: 8px 12px;       /* 內距 */
+  background: #f0f4f8;     /* 淺底色，區分區塊 */
+  border-left: 5px solid #2a5d84; /* 左側強調線條 */
+  border-radius: 4px;      /* 圓角 */
+}
+a{
+  text-decoration: none;
+  color:#fff;
+  display: block;        /* 讓 a 變成區塊元素 */
+  width: 100%;
+  height: 100%;     
+}
 .container {
   display: grid;
   grid-template-columns: 1fr 2fr;
@@ -32,14 +53,16 @@ h1 {
   background: #eef6ff;
 }
 #map {
-  height: 500px;
+  height: 100%;
   border-radius: 12px;
 }
 .top .buttonArea {
-  display: flex;            /* 啟用 flex 排列 */               
+  display: flex;            /* 啟用 flex 排列 */       
+          
 }
 
 .top .buttonArea > div {
+  font-size: 1.5rem;       /* 字體大小 */
   flex: 1;                  /* 平分寬度 */
   text-align: center;       /* 文字置中 */
   padding: 10px 0;          /* 上下內距 */
@@ -54,21 +77,27 @@ h1 {
 }
 
 /*翻譯區*/
-.accordion{
-  border: 1px solid #d0d8f0;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-  margin-top: 20px;  
-  background: #f0f4ff;  /* 整個卡片區背景色，可自由調整 */
-  padding-top: 20px;         /* 內距，讓卡片不貼邊 */
-  padding-bottom: 20px;
-  border-radius: 12px;   /* 讓整個區塊圓角 */
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* 輕微陰影更分層 */
+.accordion {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr); /* 三欄 */
+  gap: 10px; /* 卡片間距 */
 }
 .accordion .card {
   border: 1px solid #ccc;
   border-radius: 8px;
   margin-bottom: 10px;
   overflow: hidden;
+}
+@media (max-width: 768px) {
+  .accordion {
+    grid-template-columns: repeat(2, 1fr); /* 平板 2 欄 */
+  }
+}
+
+@media (max-width: 480px) {
+  .accordion {
+    grid-template-columns: 1fr; /* 手機 1 欄 */
+  }
 }
 
 .card-header {
@@ -93,6 +122,7 @@ h1 {
 .card-body button {
   display: inline-block;  /* 按鈕跟文字在同一行 */
   margin-left: 8px;       /* 與文字保留間距 */
+  margin-bottom: 5px;
   padding: 4px 8px;
   font-size: 14px;
   vertical-align: middle; /* 對齊文字中線 */
@@ -103,4 +133,140 @@ h1 {
 }
 .card-body.open {
   padding: 12px;
+}
+
+/* 行程細節 */
+.timeline-horizontal {
+  padding: 20px;
+  max-width: 100%;
+  /* overflow-x: auto; */
+}
+
+.timeline-horizontal h2 {
+  margin-bottom: 20px;
+  color: #2a5d84;
+}
+
+.timeline {
+  display: flex;
+  align-items: flex-start;
+  position: relative;
+  gap: 40px;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  top: 10px;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: #2a5d84;
+  z-index: 0;
+}
+
+.timeline-item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.timeline-item .circle {
+  width: 20px;
+  height: 20px;
+  background: #2a5d84;
+  border-radius: 50%;
+  border: 3px solid #fff;
+  margin-bottom: 6px;
+  box-shadow: 0 0 0 2px #2a5d84;
+}
+
+.timeline-item .content {
+  text-align: center;
+}
+
+.timeline-item .time {
+  font-weight: bold;
+  color: #2a5d84;
+}
+
+.timeline-item .event {
+  background: #f4f6f8;
+  padding: 6px 12px;
+  border-radius: 6px;
+  margin-top: 4px;
+  display: inline-block;
+}
+
+/* 彈出清單 */
+.timeline-item .details {
+  position: absolute;
+  top: 40px;  /* 圓點下方 */
+  left: 50%;
+  transform: translateX(-50%);
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  padding: 10px;
+  display: none; /* 預設隱藏 */
+  min-width: 180px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  z-index: 10;
+}
+.timeline-item .details ul {
+  margin: 0;
+  padding-left: 20px;
+}
+.timeline-item .details ul li {
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+/*回到頂端按鈕*/
+#backToTop {
+  position: fixed;
+  bottom: 20px;
+  right: 30px;
+  z-index: 999;
+  background-color: #2a5d84;
+  color: #fff;
+  border: none;
+  padding: 4px 10px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 50px;
+  display: none; /* 預設隱藏 */
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  transition: background 0.3s;
+}
+
+#backToTop:hover {
+  background-color: #3a6d94;
+}
+
+/*注意事項*/
+.important-info {
+  background-color: #ffeaa7; /* 黃色底，醒目 */
+  border-left: 6px solid #fd6e6a; /* 左側紅色條強調 */
+  padding: 15px 20px;
+  margin: 20px 0;
+  border-radius: 8px;
+}
+
+.important-info h2 {
+  margin-top: 0;
+  color: #d63031;
+}
+
+.important-info ul {
+  margin: 10px 0 0 0;
+  padding-left: 20px;
+}
+
+.important-info ul li {
+  margin-bottom: 6px;
+  font-weight: 500;
 }

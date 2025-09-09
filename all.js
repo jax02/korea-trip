@@ -159,3 +159,34 @@ document.querySelectorAll(".tts-btn").forEach(btn => {
     speechSynthesis.speak(utterance);
   });
 });
+
+//timeLine
+function toggleList(item) {
+  const details = item.querySelector('.details');
+  const isVisible = details.style.display === 'block';
+  
+  // 先隱藏所有其他 details
+  document.querySelectorAll('.timeline-item .details').forEach(d => d.style.display = 'none');
+
+  // 切換當前
+  details.style.display = isVisible ? 'none' : 'block';
+}
+
+//回到頂端
+// 取得按鈕
+const backToTopBtn = document.getElementById("backToTop");
+
+// 當頁面滾動時顯示或隱藏按鈕
+window.onscroll = function() {
+  if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+    backToTopBtn.style.display = "block";
+  } else {
+    backToTopBtn.style.display = "none";
+  }
+};
+
+// 點擊按鈕滾回最上層
+backToTopBtn.addEventListener("click", () => {
+  window.scrollTo({ top: 0, behavior: "smooth" });
+});
+
