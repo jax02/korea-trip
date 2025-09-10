@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>費用記錄</title>
+    <link rel="stylesheet" href="record.css">
+</head>
+<body>
+    <h1>韓國 5 日遊行程</h1>
+   <div class="top">
+    <div class="buttonArea">
+        <div class="A"><a href="index.html">地圖區</a></div>
+        <div class="B"><a href="index.html">翻譯區</a></div>
+        <div class="C"><a href="index.html">行程時刻表</a></div>
+        <div class="D">注意事項</div>
+        <div class="record"><a href="record.html">花費記錄區</a></div>
+    </div>
+   </div>
+   <section class="important-info">
+  <h2>注意事項</h2>
+  <ul>
+    <li>⚠️ 首爾交通卡需先充值，建議 T-money 卡</li>
+    <li>💡 景福宮周一休館，請注意行程安排</li>
+    <li>📌 午餐可提前預約熱門餐廳避免排隊</li>
+    <li>🕒 注意開放時間與預留交通時間</li>
+  </ul>
+</section>
+<div class="space"></div>  
+<h2 class="title" id="">花費紀錄</h2>
+<div class="table-container">
+  <h2>費用管理表</h2>
+  <table id="tripTable">
+    <thead>
+      <tr>
+        <th>日期</th>
+        <th>地點</th>
+        <th>金額</th>
+        <th>預付</th>
+        <th>備註</th>
+        <th>操作</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Day 1</td>
+        <td>仁川機場</td>
+        <td>₩100,000</td>
+        <td>小明</td>
+        <td>飛機餐</td>
+        <td>
+          <button onclick="editRow(this)">修改</button>
+          <button onclick="deleteRow(this)">刪除</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="form">
+    <select id="day">
+        <option value="">選擇日期</option>
+        <option value="Day1">Day1</option>
+        <option value="Day2">Day2</option>
+        <option value="Day3">Day3</option>
+        <option value="Day4">Day4</option>
+        <option value="Day5">Day5</option>
+    </select>
+    <input type="text" id="place" placeholder="地點">
+    <input type="number" id="priceOptions" placeholder="總金額">
+    <select id="people">
+        <option value="">誰先付</option>
+        <option value="people1">岑</option>
+        <option value="people2">鎧</option>
+        <option value="people3">樺</option>
+        <option value="people4">穎</option>
+        <option value="people5">禹</option>
+        <option value="people6">榕</option>
+    </select>
+    <input type="text" id="note" placeholder="備註">
+    <button onclick="addRow()">新增</button>
+  </div>
+</div>
+
+</body>
+<script src="record.js"></script>
+</html>
