@@ -5,6 +5,8 @@ body {
   font-family: sans-serif;
   background: #f5f7fa;
   margin: 20px;
+  display: flex;
+  flex-direction: column;
 }
 .space{
   margin-top: 100px;
@@ -88,18 +90,6 @@ a{
   margin-bottom: 10px;
   overflow: hidden;
 }
-@media (max-width: 768px) {
-  .accordion {
-    grid-template-columns: repeat(2, 1fr); /* 平板 2 欄 */
-  }
-}
-
-@media (max-width: 480px) {
-  .accordion {
-    grid-template-columns: 1fr; /* 手機 1 欄 */
-  }
-}
-
 .card-header {
   background: #2a5d84;
   color: white;
@@ -124,7 +114,7 @@ a{
   margin-left: 8px;       /* 與文字保留間距 */
   margin-bottom: 5px;
   padding: 4px 8px;
-  font-size: 14px;
+  font-size: 20px;
   vertical-align: middle; /* 對齊文字中線 */
   border-radius: 10px;
 }
@@ -228,19 +218,19 @@ a{
 /*回到頂端按鈕*/
 #backToTop {
   position: fixed;
-  bottom: 20px;
+  bottom: 70px;
   right: 30px;
   z-index: 999;
   background-color: #2a5d84;
   color: #fff;
-  border: none;
   padding: 4px 10px;
-  border-radius: 50%;
+  border-radius: 10%;
   cursor: pointer;
   font-size: 50px;
   display: none; /* 預設隱藏 */
   box-shadow: 0 4px 10px rgba(0,0,0,0.2);
   transition: background 0.3s;
+  border: 2px solid #d9e1e8;
 }
 
 #backToTop:hover {
@@ -269,4 +259,14 @@ a{
 .important-info ul li {
   margin-bottom: 6px;
   font-weight: 500;
+}
+
+/*Footer*/
+.footer {
+  background-color: #2a5d84;  /* 深藍色背景 */
+  color: white;               /* 白色文字 */
+  text-align: center;         /* 置中 */
+  margin-top: 30px;
+  font-size: 14px;
+  line-height: 1.6;
 }
