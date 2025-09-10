@@ -159,7 +159,9 @@ document.querySelectorAll(".tts-btn").forEach(btn => {
     speechSynthesis.speak(utterance);
 
     const voices = speechSynthesis.getVoices();
-    alert(voices); // 看手機是否有 ko-KR
+    voices.forEach(v => {
+      alert(`${v.name} - ${v.lang}`);
+    });
   });
 });
 
