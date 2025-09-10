@@ -157,6 +157,9 @@ document.querySelectorAll(".tts-btn").forEach(btn => {
     const utterance = new SpeechSynthesisUtterance(text);
     utterance.lang = 'ko-KR'; // 韓語，如要中文 'zh-TW'
     speechSynthesis.speak(utterance);
+
+    const voices = speechSynthesis.getVoices();
+    alert(voices); // 看手機是否有 ko-KR
   });
 });
 
