@@ -153,17 +153,33 @@ document.querySelectorAll(".tts-btn").forEach(btn => {
   btn.addEventListener("click", () => {
     const text = btn.getAttribute("data-text");
 
-    // 使用瀏覽器 Web Speech API
-    const utterance = new SpeechSynthesisUtterance(text);
-    utterance.lang = 'ko-KR'; // 韓語，如要中文 'zh-TW'
-    speechSynthesis.speak(utterance);
+    function speakKorean() {
+      const utterance = new SpeechSynthesisUtterance(text);
+      utterance.lang = 'ko-KR';
 
-    const voices = speechSynthesis.getVoices();
-    voices.forEach(v => {
-      alert(`${v.name} - ${v.lang}`);
-    });
+      const voices = speechSynthesis.getVoices();
+      const koVoice = voices.find(v => v.lang === 'ko-KR');
+
+      if (koVoice) {
+        utterance.voice = koVoice;
+        speechSynthesis.speak(utterance);
+      } else {
+        alert("手機目前沒有 ko-KR 語音");
+      }
+
+      // 顯示所有語音列表
+      // voices.forEach(v => alert(`${v.name} - ${v.lang}`));
+    }
+
+    // 如果語音列表尚未準備好，使用 onvoiceschanged
+    if (speechSynthesis.getVoices().length === 0) {
+      speechSynthesis.onvoiceschanged = speakKorean;
+    } else {
+      speakKorean();
+    }
   });
 });
+
 
 //timeLine
 function toggleList(item) {
